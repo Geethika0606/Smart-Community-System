@@ -522,7 +522,12 @@
           });
         }
 
-        fetch('/api/dashboard')
+        const loggedInUser = JSON.parse(localStorage.getItem('smartCommunityUser') || 'null');
+        const dashboardUrl = loggedInUser && loggedInUser.email
+          ? '/api/dashboard?email=' + encodeURIComponent(loggedInUser.email)
+          : '/api/dashboard';
+
+        fetch(dashboardUrl)
           .then(function (response) { return response.json(); })
           .then(function (data) {
             const residentName = document.querySelector('h1');
@@ -540,6 +545,20 @@
           .catch(function () {
             console.warn('Dashboard data cannot be loaded from backend yet.');
           });
+
+        const signOutBtn = document.createElement('button');
+        signOutBtn.type = 'button';
+        signOutBtn.textContent = 'Sign out';
+        signOutBtn.className = 'ml-2 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm';
+        signOutBtn.addEventListener('click', function () {
+          localStorage.removeItem('smartCommunityUser');
+          window.location.href = '/resident_sign_in_1/code.html';
+        });
+
+        const profile = document.querySelector('header .flex.items-center.gap-space-sm.flex-shrink-0');
+        if (profile) {
+          profile.appendChild(signOutBtn);
+        }
       })();
     </script>
   </main>

@@ -408,6 +408,8 @@
               throw new Error(result.message || 'Login failed.');
             }
 
+            localStorage.setItem('smartCommunityUser', JSON.stringify(result.resident));
+
             setTimeout(function () {
               window.location.href = result.redirect || '/resident_dashboard/code.html';
             }, 1200);

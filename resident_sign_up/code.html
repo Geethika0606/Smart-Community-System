@@ -1,379 +1,547 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface-variant": "#3f4941", "primary": "#006138", "error": "#ba1a1a", "surface-bright": "#f8f9ff", "on-error-container": "#93000a", "surface-container-low": "#eff4ff", "on-secondary": "#ffffff", "surface-container-highest": "#d5e3fc", "surface-container-lowest": "#ffffff", "inverse-on-surface": "#eaf1ff", "error-container": "#ffdad6", "surface-container-high": "#dce9ff", "inverse-surface": "#233144", "on-primary-container": "#b5ffce", "outline": "#6f7a71", "primary-fixed-dim": "#81d9a2", "primary-container": "#1e7b4d", "on-primary": "#ffffff", "primary-fixed": "#9cf5bd", "on-tertiary-container": "#b4ffd7", "surface-tint": "#026d40", "background": "#f8f9ff", "secondary-fixed": "#89f5e7", "on-tertiary-fixed": "#002113", "secondary": "#006a61", "on-secondary-container": "#006f66", "on-tertiary-fixed-variant": "#005236", "secondary-container": "#86f2e4", "inverse-primary": "#81d9a2", "on-error": "#ffffff", "tertiary-container": "#007c55", "on-primary-fixed-variant": "#00522f", "surface-dim": "#ccdbf3", "on-background": "#0d1c2e", "surface": "#f8f9ff", "tertiary": "#006141", "tertiary-fixed": "#6ffbbe", "surface-container": "#e6eeff", "on-primary-fixed": "#002110", "surface-variant": "#d5e3fc", "on-tertiary": "#ffffff", "on-surface": "#0d1c2e", "outline-variant": "#bec9bf", "on-secondary-fixed": "#00201d", "secondary-fixed-dim": "#6bd8cb", "tertiary-fixed-dim": "#4edea3", "on-secondary-fixed-variant": "#005049" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "1.5rem", "margin-desktop": "2.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-xl": "2rem", "gutter-tablet": "1.25rem", "gutter-desktop": "1.5rem", "gutter": "1rem", "margin": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "display": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500"}], "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "headline-sm": ["18px", {"lineHeight": "26px", "fontWeight": "600"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "display-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}] } } } }</script><style>@layer base{html,body{width:100%;min-height:100%;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    name="viewport" />
+  <meta content="mobile_stack" name="shell-type" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface-variant": "#3f4941", "primary": "#006138", "error": "#ba1a1a", "surface-bright": "#f8f9ff", "on-error-container": "#93000a", "surface-container-low": "#eff4ff", "on-secondary": "#ffffff", "surface-container-highest": "#d5e3fc", "surface-container-lowest": "#ffffff", "inverse-on-surface": "#eaf1ff", "error-container": "#ffdad6", "surface-container-high": "#dce9ff", "inverse-surface": "#233144", "on-primary-container": "#b5ffce", "outline": "#6f7a71", "primary-fixed-dim": "#81d9a2", "primary-container": "#1e7b4d", "on-primary": "#ffffff", "primary-fixed": "#9cf5bd", "on-tertiary-container": "#b4ffd7", "surface-tint": "#026d40", "background": "#f8f9ff", "secondary-fixed": "#89f5e7", "on-tertiary-fixed": "#002113", "secondary": "#006a61", "on-secondary-container": "#006f66", "on-tertiary-fixed-variant": "#005236", "secondary-container": "#86f2e4", "inverse-primary": "#81d9a2", "on-error": "#ffffff", "tertiary-container": "#007c55", "on-primary-fixed-variant": "#00522f", "surface-dim": "#ccdbf3", "on-background": "#0d1c2e", "surface": "#f8f9ff", "tertiary": "#006141", "tertiary-fixed": "#6ffbbe", "surface-container": "#e6eeff", "on-primary-fixed": "#002110", "surface-variant": "#d5e3fc", "on-tertiary": "#ffffff", "on-surface": "#0d1c2e", "outline-variant": "#bec9bf", "on-secondary-fixed": "#00201d", "secondary-fixed-dim": "#6bd8cb", "tertiary-fixed-dim": "#4edea3", "on-secondary-fixed-variant": "#005049" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "1.5rem", "margin-desktop": "2.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "space-xl": "2rem", "gutter-tablet": "1.25rem", "gutter-desktop": "1.5rem", "gutter": "1rem", "margin": "1rem", "space-lg": "1.5rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "display": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }], "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }] } } } }</script>
+  <style>
+    @layer base {
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <style>
     body {
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between"><button aria-label="Go back" class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors active:scale-95" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate px-space-xs flex-1 text-center">Sign Up</h1><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-lg">
-<!-- Community Welcome & Context Banner -->
-<div class="relative overflow-hidden rounded-xl bg-surface-container-low shadow-sm p-space-md mt-space-sm">
-<div class="flex items-start justify-between">
-<div class="space-y-space-xs max-w-[78%]">
-<div class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
-<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-<span>Hyderabad • Financial District</span>
-</div>
-<h2 class="font-headline-md text-headline-md text-on-surface pt-1">New Resident Registration</h2>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Join Green Valley Residency Smart &amp; Sustainable Community</p>
-</div>
-<div class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center flex-shrink-0 text-primary">
-<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">park</span>
-</div>
-</div>
-<!-- Micro Community Visual Showcase -->
-<div class="grid grid-cols-2 gap-space-sm pt-space-md">
-<div class="relative h-20 rounded-lg overflow-hidden shadow-sm">
-<img class="w-full h-full object-cover" data-alt="Sunlit eco-friendly modern residential enclave in Hyderabad with cascading balcony gardens, solar rooftop canopies, and lush native foliage under a warm golden morning sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8RmQlh4GsXH3RY6nDRjzQYrU5V-pDBHg_5zVDwfa-u3zqOsNBjWc1KKahBQYs2QhITnJgI5Lsd31A3G0WdY5wJ57PVgivc7Qfm_AQzRRg_DFAe_EhJ18og9fwvaTHTLws_py7o0aPq0r2wd0N4HpfFqWo77LlEOlsHCB_yNyuMxVuGFWsHVnZWdyodMr4OjuMLSzEZeJwZBZ9U6f53rEMuC03fFMgVDyobWaQamA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent flex items-end p-1.5">
-<span class="text-on-primary font-label-sm text-label-sm truncate">Phase II Eco Towers</span>
-</div>
-</div>
-<div class="relative h-20 rounded-lg overflow-hidden shadow-sm">
-<img class="w-full h-full object-cover" data-alt="Central manicured community courtyard with bio-swales, wooden pergolas, native flowering plants, and solar-lit paved walking paths inside a residential complex." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiqFcBRQegHwrp2SsbZYxCHh6ITBbsWqIzuh4kmVPlcW_hl_P0N9fip1kvCqZSAGvc9Yd1BPCbCLNhGdBet0knMTkirZEAygKLC5NHzNMW_foEZ553HpNgmPxiikCa_i_gQREBMA-RiyrpZIlBbzC-lTApJD-T3XIfxWwBkkU_zo9cEJOr4E-Kbux_kxbh4iazSlYdBdTxxWQxQ_p62_wLvcXzjoTYyAZB8YWo7wg"/>
-<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent flex items-end p-1.5">
-<span class="text-on-primary font-label-sm text-label-sm truncate">Central Miyawaki Zone</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Step Progress Indicator -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
-<div class="flex items-center justify-between">
-<div class="flex items-center space-x-2">
-<span class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">1</span>
-<span class="font-label-lg text-label-lg text-on-surface">Apartment &amp; Resident Verification</span>
-</div>
-<span class="font-label-sm text-label-sm text-primary font-medium">Step 1 of 2</span>
-</div>
-<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
-<div class="h-full bg-primary-container rounded-full transition-all duration-500" style="width: 50%;"></div>
-</div>
-<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
-<span>Personal &amp; Unit Info</span>
-<span class="opacity-60">Identity &amp; Society Gate Pass</span>
-</div>
-</div>
-<!-- Main Registration Form Container -->
-<form class="space-y-space-lg" id="resident-reg-form" onsubmit="event.preventDefault(); window.handleSubmission();">
-<!-- Section 1: Resident Personal Details -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
-<div class="flex items-center space-x-2">
-<span class="material-symbols-outlined text-primary text-[20px]">badge</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Resident Particulars</h3>
-</div>
-<!-- Full Name -->
-<div class="space-y-1.5">
-<label class="font-label-md text-label-md text-on-surface-variant" for="full-name">Full Legal Name (as per Society Deed/Lease)</label>
-<div class="relative">
-<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="full-name" placeholder="e.g. Shravani Rao" required="" type="text" value="Shravani Rao"/>
-<span class="material-symbols-outlined absolute right-3 top-3 text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-</div>
-</div>
-<!-- Phone Number with +91 Prefix -->
-<div class="space-y-1.5">
-<label class="font-label-md text-label-md text-on-surface-variant" for="phone-number">Primary Mobile (OTP Verified)</label>
-<div class="flex space-x-2">
-<div class="h-12 px-3 rounded-xl bg-surface-container text-on-surface flex items-center justify-center font-label-lg text-label-lg space-x-1.5 flex-shrink-0">
-<span class="text-body-sm">🇮🇳</span>
-<span>+91</span>
-</div>
-<input class="flex-1 h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="phone-number" maxlength="10" placeholder="98765 43210" required="" type="tel" value="98765 43210"/>
-</div>
-</div>
-<!-- Email Address -->
-<div class="space-y-1.5">
-<label class="font-label-md text-label-md text-on-surface-variant" for="email-address">Email Address (for Digital Maintenance Invoices)</label>
-<div class="relative">
-<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="email-address" placeholder="shravani@example.com" required="" type="email" value="shravani.rao@hyderabadmail.com"/>
-<span class="material-symbols-outlined absolute right-3 top-3 text-[20px] text-on-surface-variant">mail</span>
-</div>
-</div>
-<!-- Resident Type Selector Chips -->
-<div class="space-y-2 pt-1">
-<label class="font-label-md text-label-md text-on-surface-variant">Residency Classification</label>
-<div class="grid grid-cols-3 gap-2" id="resident-types">
-<button class="type-chip py-2.5 px-2 rounded-xl text-center flex flex-col items-center justify-center space-y-1 bg-primary text-on-primary shadow-sm transition-all" onclick="selectType(this, 'Owner')" type="button">
-<span class="material-symbols-outlined text-[18px]">real_estate_agent</span>
-<span class="font-label-sm text-label-sm truncate">Owner (Resident)</span>
-</button>
-<button class="type-chip py-2.5 px-2 rounded-xl text-center flex flex-col items-center justify-center space-y-1 bg-surface-container text-on-surface hover:bg-surface-container-high transition-all" onclick="selectType(this, 'Tenant')" type="button">
-<span class="material-symbols-outlined text-[18px]">key</span>
-<span class="font-label-sm text-label-sm truncate">Tenant</span>
-</button>
-<button class="type-chip py-2.5 px-2 rounded-xl text-center flex flex-col items-center justify-center space-y-1 bg-surface-container text-on-surface hover:bg-surface-container-high transition-all" onclick="selectType(this, 'Family')" type="button">
-<span class="material-symbols-outlined text-[18px]">family_restroom</span>
-<span class="font-label-sm text-label-sm truncate">Family Member</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Section 2: Apartment Location & Unit Allocation -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
-<div class="flex items-center justify-between">
-<div class="flex items-center space-x-2">
-<span class="material-symbols-outlined text-primary text-[20px]">apartment</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Apartment Allocation</h3>
-</div>
-<span class="px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm">Tower B Selected</span>
-</div>
-<!-- Block Selector Tabs -->
-<div class="space-y-1.5">
-<label class="font-label-md text-label-md text-on-surface-variant">Select Residential Block / Tower</label>
-<div class="grid grid-cols-4 gap-2" id="block-selector">
-<button class="block-tab h-11 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-high transition-all" onclick="selectBlock(this, 'A')" type="button">
-            Block A
-          </button>
-<button class="block-tab h-11 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center shadow-sm transition-all" onclick="selectBlock(this, 'B')" type="button">
-            Block B
-          </button>
-<button class="block-tab h-11 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-high transition-all" onclick="selectBlock(this, 'C')" type="button">
-            Block C
-          </button>
-<button class="block-tab h-11 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-high transition-all" onclick="selectBlock(this, 'D')" type="button">
-            Block D
-          </button>
-</div>
-</div>
-<!-- Flat Number Input & Quick Picker -->
-<div class="space-y-1.5">
-<div class="flex justify-between items-center">
-<label class="font-label-md text-label-md text-on-surface-variant" for="flat-number">Flat / Apartment Number</label>
-<span class="font-label-sm text-label-sm text-primary">Floor 2 • East Facing</span>
-</div>
-<div class="relative">
-<input class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md uppercase font-semibold focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="flat-number" placeholder="e.g. B-204" required="" type="text" value="B-204"/>
-<span class="material-symbols-outlined absolute right-3 top-3 text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">domain_verification</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Society Master record matches Flat B-204 with 2,450 sq.ft 3BHK + Garden View.</p>
-</div>
-<!-- Vehicle Registration (Optional with Smart RFID tag mention) -->
-<div class="p-space-sm rounded-lg bg-surface-container-low space-y-2">
-<div class="flex items-center justify-between">
-<div class="flex items-center space-x-1.5 text-on-surface">
-<span class="material-symbols-outlined text-[18px] text-secondary">directions_car</span>
-<label class="font-label-md text-label-md" for="vehicle-number">Vehicle Registration (Optional)</label>
-</div>
-<span class="font-label-sm text-label-sm text-secondary">FastTag / RFID Sync</span>
-</div>
-<div class="relative">
-<input class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-secondary-container transition-all" id="vehicle-number" placeholder="TS09AB1234 (Car or Bike)" type="text" value="TS09EF4402"/>
-<span class="material-symbols-outlined absolute right-3 top-2.5 text-[20px] text-secondary">garage</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Automates barrier boom-gate lift at North &amp; South gate entries via ANPR camera.</p>
-</div>
-</div>
-<!-- Section 3: Portal Security & Access Password -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
-<div class="flex items-center space-x-2">
-<span class="material-symbols-outlined text-primary text-[20px]">lock</span>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Portal Password</h3>
-</div>
-<!-- Password Field -->
-<div class="space-y-1.5">
-<label class="font-label-md text-label-md text-on-surface-variant" for="password-input">Create Portal Password</label>
-<div class="relative">
-<input class="w-full h-12 px-space-md pr-12 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="password-input" oninput="updateMeter(this.value)" required="" type="password" value="GreenValley2024!"/>
-<button class="absolute right-3 top-3 text-on-surface-variant hover:text-on-surface" onclick="togglePass('password-input', this)" type="button">
-<span class="material-symbols-outlined text-[20px]">visibility</span>
-</button>
-</div>
-<!-- Security Meter -->
-<div class="space-y-1 pt-1">
-<div class="flex justify-between items-center text-label-sm font-label-sm">
-<span class="text-on-surface-variant">Password Strength:</span>
-<span class="text-primary font-semibold" id="meter-label">Strong</span>
-</div>
-<div class="grid grid-cols-4 gap-1.5 h-1.5">
-<div class="rounded-full bg-primary-container transition-colors" id="bar-1"></div>
-<div class="rounded-full bg-primary-container transition-colors" id="bar-2"></div>
-<div class="rounded-full bg-primary-container transition-colors" id="bar-3"></div>
-<div class="rounded-full bg-surface-container transition-colors" id="bar-4"></div>
-</div>
-</div>
-</div>
-<!-- Confirm Password -->
-<div class="space-y-1.5">
-<label class="font-label-md text-label-md text-on-surface-variant" for="confirm-password">Confirm Password</label>
-<div class="relative">
-<input class="w-full h-12 px-space-md pr-12 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" id="confirm-password" required="" type="password" value="GreenValley2024!"/>
-<button class="absolute right-3 top-3 text-on-surface-variant hover:text-on-surface" onclick="togglePass('confirm-password', this)" type="button">
-<span class="material-symbols-outlined text-[20px]">visibility</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Eco-Living Charter Consent Checkbox -->
-<div class="bg-primary/5 rounded-xl p-space-md space-y-space-sm">
-<div class="flex items-start space-x-3">
-<label class="relative flex items-center cursor-pointer pt-0.5">
-<input checked="" class="sr-only peer" id="charter-agree" required="" type="checkbox"/>
-<div class="w-5 h-5 rounded-md bg-surface-container-lowest peer-checked:bg-primary-container flex items-center justify-center text-on-primary transition-all shadow-sm">
-<span class="material-symbols-outlined text-[16px] hidden peer-checked:block">check</span>
-</div>
-</label>
-<div class="space-y-1">
-<label class="font-label-lg text-label-lg text-on-surface cursor-pointer" for="charter-agree">
-            I agree to the Green Valley Eco-Living Bylaws &amp; Waste Segregation Charter
-          </label>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-            Mandates 3-way source waste segregation (Wet, Dry, E-waste), respectful quiet hours (10:00 PM – 6:00 AM), and conservation of community solar harvesting arrays.
-          </p>
-</div>
-</div>
-</div>
-<!-- Primary Action Button -->
-<div class="space-y-3 pt-space-xs">
-<button class="w-full h-12 rounded-xl bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center space-x-2 shadow-md hover:bg-primary transition-transform active:scale-[0.98]" id="submit-btn" type="submit">
-<span class="material-symbols-outlined text-[20px]">how_to_reg</span>
-<span>Submit Registration for Society Verification</span>
-</button>
-<!-- Already Registered Quick Link -->
-<div class="text-center pt-2">
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-          Already registered or moving into B-204? 
-          <a class="text-primary font-semibold hover:underline" href="#signin" onclick="alert('Redirecting to Society Resident Sign-in Portal.');">
-            Sign In to Portal
-          </a>
-</p>
-</div>
-</div>
-</form>
-<!-- Community Benefits Highlight Pill Card -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
-<div class="flex items-center justify-between">
-<div class="flex items-center space-x-2">
-<span class="material-symbols-outlined text-primary text-[20px]">energy_savings_leaf</span>
-<h4 class="font-label-lg text-label-lg text-on-surface">Community Living Highlights</h4>
-</div>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">IGBC Platinum Certified</span>
-</div>
-<!-- 4 Value Pill Cards -->
-<div class="grid grid-cols-2 gap-space-sm">
-<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col space-y-1">
-<div class="w-7 h-7 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-1">
-<span class="material-symbols-outlined text-[16px]">solar_power</span>
-</div>
-<span class="font-label-md text-label-md text-on-surface">100% Solar Power</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Elevators, pumps &amp; all common LED grids.</p>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col space-y-1">
-<div class="w-7 h-7 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary mb-1">
-<span class="material-symbols-outlined text-[16px]">water_drop</span>
-</div>
-<span class="font-label-md text-label-md text-on-surface">Smart Water Telemetry</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Real-time greywater recycling &amp; STP monitoring.</p>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col space-y-1">
-<div class="w-7 h-7 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary mb-1">
-<span class="material-symbols-outlined text-[16px]">compost</span>
-</div>
-<span class="font-label-md text-label-md text-on-surface">Composting Rewards</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Earn maintenance credits for wet waste turning.</p>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col space-y-1">
-<div class="w-7 h-7 rounded-full bg-primary-fixed-dim flex items-center justify-center text-primary-container mb-1">
-<span class="material-symbols-outlined text-[16px]">ev_station</span>
-</div>
-<span class="font-label-md text-label-md text-on-surface">Automated EV Hub</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Dedicated 22kW chargers per parking basement.</p>
-</div>
-</div>
-</div>
-<!-- Interactive Simulation Success Toast (Hidden Initially) -->
-<div class="hidden rounded-xl bg-primary-container p-space-md text-on-primary shadow-lg space-y-space-xs transition-all" id="success-banner">
-<div class="flex items-center space-x-2">
-<span class="material-symbols-outlined text-[24px]">verified</span>
-<span class="font-headline-sm text-headline-sm">Application #GVR-2024-884 Lodged!</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-primary-container">
-      Sent to Green Valley Estate Management Office for Flat B-204 verification. Your digital gate pass access credentials will be delivered via SMS/WhatsApp within 2 hours.
-    </p>
-</div>
-<!-- Subtle Prototype Disclaimer -->
-<div class="text-center pt-space-xs pb-space-sm">
-<p class="font-body-sm text-body-sm text-on-surface-variant opacity-75">
-      Prototype Demonstration • Society office verification simulated
-    </p>
-</div>
-</div>
-<script>
-  function selectType(btn, type) {
-    document.querySelectorAll('.type-chip').forEach(el => {
-      el.className = 'type-chip py-2.5 px-2 rounded-xl text-center flex flex-col items-center justify-center space-y-1 bg-surface-container text-on-surface hover:bg-surface-container-high transition-all';
-    });
-    btn.className = 'type-chip py-2.5 px-2 rounded-xl text-center flex flex-col items-center justify-center space-y-1 bg-primary text-on-primary shadow-sm transition-all';
-  }
+</head>
 
-  function selectBlock(btn, block) {
-    document.querySelectorAll('.block-tab').forEach(el => {
-      el.className = 'block-tab h-11 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-high transition-all';
-    });
-    btn.className = 'block-tab h-11 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center shadow-sm transition-all';
-    
-    // Update default flat prefix
-    const flatInput = document.getElementById('flat-number');
-    if (flatInput) {
-      flatInput.value = block + '-204';
-    }
-  }
-
-  function togglePass(inputId, btn) {
-    const input = document.getElementById(inputId);
-    const icon = btn.querySelector('.material-symbols-outlined');
-    if (input.type === 'password') {
-      input.type = 'text';
-      icon.textContent = 'visibility_off';
-    } else {
-      input.type = 'password';
-      icon.textContent = 'visibility';
-    }
-  }
-
-  function updateMeter(val) {
-    const label = document.getElementById('meter-label');
-    const b1 = document.getElementById('bar-1');
-    const b2 = document.getElementById('bar-2');
-    const b3 = document.getElementById('bar-3');
-    const b4 = document.getElementById('bar-4');
-    
-    if (val.length < 5) {
-      label.textContent = 'Weak';
-      b1.className = 'rounded-full bg-error transition-colors';
-      b2.className = 'rounded-full bg-surface-container transition-colors';
-      b3.className = 'rounded-full bg-surface-container transition-colors';
-      b4.className = 'rounded-full bg-surface-container transition-colors';
-    } else if (val.length < 8) {
-      label.textContent = 'Fair';
-      b1.className = 'rounded-full bg-secondary-container transition-colors';
-      b2.className = 'rounded-full bg-secondary-container transition-colors';
-      b3.className = 'rounded-full bg-surface-container transition-colors';
-      b4.className = 'rounded-full bg-surface-container transition-colors';
-    } else {
-      label.textContent = 'Strong';
-      b1.className = 'rounded-full bg-primary-container transition-colors';
-      b2.className = 'rounded-full bg-primary-container transition-colors';
-      b3.className = 'rounded-full bg-primary-container transition-colors';
-      b4.className = 'rounded-full bg-primary-container transition-colors';
-    }
-  }
-
-  window.handleSubmission = function() {
-    const banner = document.getElementById('success-banner');
-    const submitBtn = document.getElementById('submit-btn');
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">sync</span><span>Submitting to Estate Office...</span>';
-    }
-    setTimeout(() => {
-      if (banner) {
-        banner.classList.remove('hidden');
-        banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+<body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen">
+  <header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+    <div class="h-16 px-margin flex items-center justify-between"><button aria-label="Go back"
+        class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors active:scale-95"
+        onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button>
+      <h1 class="font-headline-sm text-headline-sm text-on-surface truncate px-space-xs flex-1 text-center">Sign Up</h1>
+      <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span
+          class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+    </div>
+  </header>
+  <main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface">
+    <div class="flex flex-col w-full px-margin pb-space-xl space-y-space-lg">
+      <!-- Community Welcome & Context Banner -->
+      <div class="relative overflow-hidden rounded-xl bg-surface-container-low shadow-sm p-space-md mt-space-sm">
+        <div class="flex items-start justify-between">
+          <div class="space-y-space-xs max-w-[78%]">
+            <div
+              class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              <span>Hyderabad • Financial District</span>
+            </div>
+            <h2 class="font-headline-md text-headline-md text-on-surface pt-1">New Resident Registration</h2>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Join Green Valley Residency Smart &amp;
+              Sustainable Community</p>
+          </div>
+          <div
+            class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center flex-shrink-0 text-primary">
+            <span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">park</span>
+          </div>
+        </div>
+        <!-- Micro Community Visual Showcase -->
+        <div class="grid grid-cols-2 gap-space-sm pt-space-md">
+          <div class="relative h-20 rounded-lg overflow-hidden shadow-sm">
+            <img class="w-full h-full object-cover"
+              data-alt="Sunlit eco-friendly modern residential enclave in Hyderabad with cascading balcony gardens, solar rooftop canopies, and lush native foliage under a warm golden morning sky."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8RmQlh4GsXH3RY6nDRjzQYrU5V-pDBHg_5zVDwfa-u3zqOsNBjWc1KKahBQYs2QhITnJgI5Lsd31A3G0WdY5wJ57PVgivc7Qfm_AQzRRg_DFAe_EhJ18og9fwvaTHTLws_py7o0aPq0r2wd0N4HpfFqWo77LlEOlsHCB_yNyuMxVuGFWsHVnZWdyodMr4OjuMLSzEZeJwZBZ9U6f53rEMuC03fFMgVDyobWaQamA" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent flex items-end p-1.5">
+              <span class="text-on-primary font-label-sm text-label-sm truncate">Phase II Eco Towers</span>
+            </div>
+          </div>
+          <div class="relative h-20 rounded-lg overflow-hidden shadow-sm">
+            <img class="w-full h-full object-cover"
+              data-alt="Central manicured community courtyard with bio-swales, wooden pergolas, native flowering plants, and solar-lit paved walking paths inside a residential complex."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiqFcBRQegHwrp2SsbZYxCHh6ITBbsWqIzuh4kmVPlcW_hl_P0N9fip1kvCqZSAGvc9Yd1BPCbCLNhGdBet0knMTkirZEAygKLC5NHzNMW_foEZ553HpNgmPxiikCa_i_gQREBMA-RiyrpZIlBbzC-lTApJD-T3XIfxWwBkkU_zo9cEJOr4E-Kbux_kxbh4iazSlYdBdTxxWQxQ_p62_wLvcXzjoTYyAZB8YWo7wg" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent flex items-end p-1.5">
+              <span class="text-on-primary font-label-sm text-label-sm truncate">Central Miyawaki Zone</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Step Progress Indicator -->
+      <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span
+              class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">1</span>
+            <span class="font-label-lg text-label-lg text-on-surface">Apartment &amp; Resident Verification</span>
+          </div>
+          <span class="font-label-sm text-label-sm text-primary font-medium">Step 1 of 2</span>
+        </div>
+        <div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+          <div class="h-full bg-primary-container rounded-full transition-all duration-500" style="width: 50%;"></div>
+        </div>
+        <div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+          <span>Personal &amp; Unit Info</span>
+          <span class="opacity-60">Identity &amp; Society Gate Pass</span>
+        </div>
+      </div>
+      <!-- Main Registration Form Container -->
+      <form class="space-y-space-lg" id="resident-reg-form"
+        onsubmit="event.preventDefault(); window.handleSubmission();">
+        <!-- Section 1: Resident Personal Details -->
+        <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+          <div class="flex items-center space-x-2">
+            <span class="material-symbols-outlined text-primary text-[20px]">badge</span>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Resident Particulars</h3>
+          </div>
+          <!-- Full Name -->
+          <div class="space-y-1.5">
+            <label class="font-label-md text-label-md text-on-surface-variant" for="full-name">Full Legal Name (as per
+              Society Deed/Lease)</label>
+            <div class="relative">
+              <input
+                class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                id="full-name" placeholder="e.g. Shravani Rao" required="" type="text" value="Shravani Rao" />
+              <span class="material-symbols-outlined absolute right-3 top-3 text-[20px] text-primary"
+                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            </div>
+          </div>
+          <!-- Phone Number with +91 Prefix -->
+          <div class="space-y-1.5">
+            <label class="font-label-md text-label-md text-on-surface-variant" for="phone-number">Primary Mobile (OTP
+              Verified)</label>
+            <div class="flex space-x-2">
+              <div
+                class="h-12 px-3 rounded-xl bg-surface-container text-on-surface flex items-center justify-center font-label-lg text-label-lg space-x-1.5 flex-shrink-0">
+                <span class="text-body-sm">🇮🇳</span>
+                <span>+91</span>
+              </div>
+              <input
+                class="flex-1 h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                id="phone-number" maxlength="10" placeholder="98765 43210" required="" type="tel" value="98765 43210" />
+            </div>
+          </div>
+          <!-- Email Address -->
+          <div class="space-y-1.5">
+            <label class="font-label-md text-label-md text-on-surface-variant" for="email-address">Email Address (for
+              Digital Maintenance Invoices)</label>
+            <div class="relative">
+              <input
+                class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                id="email-address" placeholder="shravani@example.com" required="" type="email"
+                value="shravani.rao@hyderabadmail.com" />
+              <span
+                class="material-symbols-outlined absolute right-3 top-3 text-[20px] text-on-surface-variant">mail</span>
+            </div>
+          </div>
+          <!-- Resident Type Selector Chips -->
+          <div class="space-y-2 pt-1">
+            <label class="font-label-md text-label-md text-on-surface-variant">Residency Classification</label>
+            <div class="grid grid-cols-3 gap-2" id="resident-types">
+              <button
+                class="type-chip py-2.5 px-2 rounded-xl text-center flex flex-col items-center justify-center space-y-1 bg-primary text-on-primary shadow-sm transition-all"
+                onclick="selectType(this, 'Owner')" type="button">
+                <span class="material-symbols-outlined text-[18px]">real_estate_agent</span>
+                <span class="font-label-sm text-label-sm truncate">Owner (Resident)</span>
+              </button>
+              <button
+                class="type-chip py-2.5 px-2 rounded-xl text-center flex flex-col items-center justify-center space-y-1 bg-surface-container text-on-surface hover:bg-surface-container-high transition-all"
+                onclick="selectType(this, 'Tenant')" type="button">
+                <span class="material-symbols-outlined text-[18px]">key</span>
+                <span class="font-label-sm text-label-sm truncate">Tenant</span>
+              </button>
+              <button
+                class="type-chip py-2.5 px-2 rounded-xl text-center flex flex-col items-center justify-center space-y-1 bg-surface-container text-on-surface hover:bg-surface-container-high transition-all"
+                onclick="selectType(this, 'Family')" type="button">
+                <span class="material-symbols-outlined text-[18px]">family_restroom</span>
+                <span class="font-label-sm text-label-sm truncate">Family Member</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Section 2: Apartment Location & Unit Allocation -->
+        <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="material-symbols-outlined text-primary text-[20px]">apartment</span>
+              <h3 class="font-headline-sm text-headline-sm text-on-surface">Apartment Allocation</h3>
+            </div>
+            <span
+              class="px-2 py-0.5 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm">Tower
+              B Selected</span>
+          </div>
+          <!-- Block Selector Tabs -->
+          <div class="space-y-1.5">
+            <label class="font-label-md text-label-md text-on-surface-variant">Select Residential Block / Tower</label>
+            <div class="grid grid-cols-4 gap-2" id="block-selector">
+              <button
+                class="block-tab h-11 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-high transition-all"
+                onclick="selectBlock(this, 'A')" type="button">
+                Block A
+              </button>
+              <button
+                class="block-tab h-11 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center shadow-sm transition-all"
+                onclick="selectBlock(this, 'B')" type="button">
+                Block B
+              </button>
+              <button
+                class="block-tab h-11 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-high transition-all"
+                onclick="selectBlock(this, 'C')" type="button">
+                Block C
+              </button>
+              <button
+                class="block-tab h-11 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-high transition-all"
+                onclick="selectBlock(this, 'D')" type="button">
+                Block D
+              </button>
+            </div>
+          </div>
+          <!-- Flat Number Input & Quick Picker -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between items-center">
+              <label class="font-label-md text-label-md text-on-surface-variant" for="flat-number">Flat / Apartment
+                Number</label>
+              <span class="font-label-sm text-label-sm text-primary">Floor 2 • East Facing</span>
+            </div>
+            <div class="relative">
+              <input
+                class="w-full h-12 px-space-md rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md uppercase font-semibold focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                id="flat-number" placeholder="e.g. B-204" required="" type="text" value="B-204" />
+              <span class="material-symbols-outlined absolute right-3 top-3 text-[20px] text-primary"
+                style="font-variation-settings: 'FILL' 1;">domain_verification</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Society Master record matches Flat B-204 with
+              2,450 sq.ft 3BHK + Garden View.</p>
+          </div>
+          <!-- Vehicle Registration (Optional with Smart RFID tag mention) -->
+          <div class="p-space-sm rounded-lg bg-surface-container-low space-y-2">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-1.5 text-on-surface">
+                <span class="material-symbols-outlined text-[18px] text-secondary">directions_car</span>
+                <label class="font-label-md text-label-md" for="vehicle-number">Vehicle Registration (Optional)</label>
+              </div>
+              <span class="font-label-sm text-label-sm text-secondary">FastTag / RFID Sync</span>
+            </div>
+            <div class="relative">
+              <input
+                class="w-full h-11 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-secondary-container transition-all"
+                id="vehicle-number" placeholder="TS09AB1234 (Car or Bike)" type="text" value="TS09EF4402" />
+              <span class="material-symbols-outlined absolute right-3 top-2.5 text-[20px] text-secondary">garage</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Automates barrier boom-gate lift at North &amp;
+              South gate entries via ANPR camera.</p>
+          </div>
+        </div>
+        <!-- Section 3: Portal Security & Access Password -->
+        <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+          <div class="flex items-center space-x-2">
+            <span class="material-symbols-outlined text-primary text-[20px]">lock</span>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Portal Password</h3>
+          </div>
+          <!-- Password Field -->
+          <div class="space-y-1.5">
+            <label class="font-label-md text-label-md text-on-surface-variant" for="password-input">Create Portal
+              Password</label>
+            <div class="relative">
+              <input
+                class="w-full h-12 px-space-md pr-12 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                id="password-input" oninput="updateMeter(this.value)" required="" type="password"
+                value="GreenValley2024!" />
+              <button class="absolute right-3 top-3 text-on-surface-variant hover:text-on-surface"
+                onclick="togglePass('password-input', this)" type="button">
+                <span class="material-symbols-outlined text-[20px]">visibility</span>
+              </button>
+            </div>
+            <!-- Security Meter -->
+            <div class="space-y-1 pt-1">
+              <div class="flex justify-between items-center text-label-sm font-label-sm">
+                <span class="text-on-surface-variant">Password Strength:</span>
+                <span class="text-primary font-semibold" id="meter-label">Strong</span>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5 h-1.5">
+                <div class="rounded-full bg-primary-container transition-colors" id="bar-1"></div>
+                <div class="rounded-full bg-primary-container transition-colors" id="bar-2"></div>
+                <div class="rounded-full bg-primary-container transition-colors" id="bar-3"></div>
+                <div class="rounded-full bg-surface-container transition-colors" id="bar-4"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Confirm Password -->
+          <div class="space-y-1.5">
+            <label class="font-label-md text-label-md text-on-surface-variant" for="confirm-password">Confirm
+              Password</label>
+            <div class="relative">
+              <input
+                class="w-full h-12 px-space-md pr-12 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                id="confirm-password" required="" type="password" value="GreenValley2024!" />
+              <button class="absolute right-3 top-3 text-on-surface-variant hover:text-on-surface"
+                onclick="togglePass('confirm-password', this)" type="button">
+                <span class="material-symbols-outlined text-[20px]">visibility</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Eco-Living Charter Consent Checkbox -->
+        <div class="bg-primary/5 rounded-xl p-space-md space-y-space-sm">
+          <div class="flex items-start space-x-3">
+            <label class="relative flex items-center cursor-pointer pt-0.5">
+              <input checked="" class="sr-only peer" id="charter-agree" required="" type="checkbox" />
+              <div
+                class="w-5 h-5 rounded-md bg-surface-container-lowest peer-checked:bg-primary-container flex items-center justify-center text-on-primary transition-all shadow-sm">
+                <span class="material-symbols-outlined text-[16px] hidden peer-checked:block">check</span>
+              </div>
+            </label>
+            <div class="space-y-1">
+              <label class="font-label-lg text-label-lg text-on-surface cursor-pointer" for="charter-agree">
+                I agree to the Green Valley Eco-Living Bylaws &amp; Waste Segregation Charter
+              </label>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Mandates 3-way source waste segregation (Wet, Dry, E-waste), respectful quiet hours (10:00 PM – 6:00
+                AM), and conservation of community solar harvesting arrays.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Primary Action Button -->
+        <div class="space-y-3 pt-space-xs">
+          <button
+            class="w-full h-12 rounded-xl bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center space-x-2 shadow-md hover:bg-primary transition-transform active:scale-[0.98]"
+            id="submit-btn" type="submit">
+            <span class="material-symbols-outlined text-[20px]">how_to_reg</span>
+            <span>Submit Registration for Society Verification</span>
+          </button>
+          <!-- Already Registered Quick Link -->
+          <div class="text-center pt-2">
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
+              Already registered or moving into B-204?
+              <a class="text-primary font-semibold hover:underline" href="#signin"
+                onclick="alert('Redirecting to Society Resident Sign-in Portal.');">
+                Sign In to Portal
+              </a>
+            </p>
+          </div>
+        </div>
+      </form>
+      <!-- Community Benefits Highlight Pill Card -->
+      <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-md">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <span class="material-symbols-outlined text-primary text-[20px]">energy_savings_leaf</span>
+            <h4 class="font-label-lg text-label-lg text-on-surface">Community Living Highlights</h4>
+          </div>
+          <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">IGBC Platinum Certified</span>
+        </div>
+        <!-- 4 Value Pill Cards -->
+        <div class="grid grid-cols-2 gap-space-sm">
+          <div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col space-y-1">
+            <div class="w-7 h-7 rounded-full bg-primary-fixed flex items-center justify-center text-primary mb-1">
+              <span class="material-symbols-outlined text-[16px]">solar_power</span>
+            </div>
+            <span class="font-label-md text-label-md text-on-surface">100% Solar Power</span>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Elevators, pumps &amp; all common LED grids.
+            </p>
+          </div>
+          <div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col space-y-1">
+            <div class="w-7 h-7 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary mb-1">
+              <span class="material-symbols-outlined text-[16px]">water_drop</span>
+            </div>
+            <span class="font-label-md text-label-md text-on-surface">Smart Water Telemetry</span>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Real-time greywater recycling &amp; STP
+              monitoring.</p>
+          </div>
+          <div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col space-y-1">
+            <div class="w-7 h-7 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary mb-1">
+              <span class="material-symbols-outlined text-[16px]">compost</span>
+            </div>
+            <span class="font-label-md text-label-md text-on-surface">Composting Rewards</span>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Earn maintenance credits for wet waste turning.
+            </p>
+          </div>
+          <div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col space-y-1">
+            <div
+              class="w-7 h-7 rounded-full bg-primary-fixed-dim flex items-center justify-center text-primary-container mb-1">
+              <span class="material-symbols-outlined text-[16px]">ev_station</span>
+            </div>
+            <span class="font-label-md text-label-md text-on-surface">Automated EV Hub</span>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Dedicated 22kW chargers per parking basement.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Interactive Simulation Success Toast (Hidden Initially) -->
+      <div
+        class="hidden rounded-xl bg-primary-container p-space-md text-on-primary shadow-lg space-y-space-xs transition-all"
+        id="success-banner">
+        <div class="flex items-center space-x-2">
+          <span class="material-symbols-outlined text-[24px]">verified</span>
+          <span class="font-headline-sm text-headline-sm">Application #GVR-2024-884 Lodged!</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-primary-container">
+          Sent to Green Valley Estate Management Office for Flat B-204 verification. Your digital gate pass access
+          credentials will be delivered via SMS/WhatsApp within 2 hours.
+        </p>
+      </div>
+      <!-- Subtle Prototype Disclaimer -->
+      <div class="text-center pt-space-xs pb-space-sm">
+        <p class="font-body-sm text-body-sm text-on-surface-variant opacity-75">
+          Prototype Demonstration • Society office verification simulated
+        </p>
+      </div>
+    </div>
+    <script>
+      function selectType(btn, type) {
+        document.querySelectorAll('.type-chip').forEach(el => {
+          el.className = 'type-chip py-2.5 px-2 rounded-xl text-center flex flex-col items-center justify-center space-y-1 bg-surface-container text-on-surface hover:bg-surface-container-high transition-all';
+        });
+        btn.className = 'type-chip py-2.5 px-2 rounded-xl text-center flex flex-col items-center justify-center space-y-1 bg-primary text-on-primary shadow-sm transition-all';
       }
-      if (submitBtn) {
-        submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span><span>Submitted for Verification</span>';
+
+      function selectBlock(btn, block) {
+        document.querySelectorAll('.block-tab').forEach(el => {
+          el.className = 'block-tab h-11 rounded-lg bg-surface-container text-on-surface font-label-lg text-label-lg flex items-center justify-center hover:bg-surface-container-high transition-all';
+        });
+        btn.className = 'block-tab h-11 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center shadow-sm transition-all';
+
+        // Update default flat prefix
+        const flatInput = document.getElementById('flat-number');
+        if (flatInput) {
+          flatInput.value = block + '-204';
+        }
       }
-    }, 600);
-  };
-</script></main></body></html>
+
+      function togglePass(inputId, btn) {
+        const input = document.getElementById(inputId);
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.textContent = 'visibility_off';
+        } else {
+          input.type = 'password';
+          icon.textContent = 'visibility';
+        }
+      }
+
+      function updateMeter(val) {
+        const label = document.getElementById('meter-label');
+        const b1 = document.getElementById('bar-1');
+        const b2 = document.getElementById('bar-2');
+        const b3 = document.getElementById('bar-3');
+        const b4 = document.getElementById('bar-4');
+
+        if (val.length < 5) {
+          label.textContent = 'Weak';
+          b1.className = 'rounded-full bg-error transition-colors';
+          b2.className = 'rounded-full bg-surface-container transition-colors';
+          b3.className = 'rounded-full bg-surface-container transition-colors';
+          b4.className = 'rounded-full bg-surface-container transition-colors';
+        } else if (val.length < 8) {
+          label.textContent = 'Fair';
+          b1.className = 'rounded-full bg-secondary-container transition-colors';
+          b2.className = 'rounded-full bg-secondary-container transition-colors';
+          b3.className = 'rounded-full bg-surface-container transition-colors';
+          b4.className = 'rounded-full bg-surface-container transition-colors';
+        } else {
+          label.textContent = 'Strong';
+          b1.className = 'rounded-full bg-primary-container transition-colors';
+          b2.className = 'rounded-full bg-primary-container transition-colors';
+          b3.className = 'rounded-full bg-primary-container transition-colors';
+          b4.className = 'rounded-full bg-primary-container transition-colors';
+        }
+      }
+
+      window.handleSubmission = async function () {
+        const banner = document.getElementById('success-banner');
+        const submitBtn = document.getElementById('submit-btn');
+        const name = document.getElementById('full-name')?.value?.trim() || '';
+        const email = document.getElementById('email-address')?.value?.trim() || '';
+        const password = document.getElementById('password-input')?.value || '';
+        const unit = document.getElementById('flat-number')?.value?.trim() || '';
+        const mobile = document.getElementById('phone-number')?.value?.trim() || '';
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[20px]">sync</span><span>Submitting to Estate Office...</span>';
+        }
+
+        try {
+          const response = await fetch('/api/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password, unit, mobile })
+          });
+
+          const result = await response.json();
+          if (!response.ok || !result.success) {
+            throw new Error(result.message || 'Registration failed.');
+          }
+
+          if (banner) {
+            banner.classList.remove('hidden');
+            banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          if (submitBtn) {
+            submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span><span>Submitted for Verification</span>';
+          }
+
+          setTimeout(() => {
+            window.location.href = '/resident_sign_in_1/code.html';
+          }, 1200);
+        } catch (error) {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">error</span><span>Retry Registration</span>';
+          }
+          alert(error.message || 'Unable to register the new resident.');
+        }
+      };
+    </script>
+  </main>
+</body>
+
+</html>

@@ -18,32 +18,50 @@ const resident = {
     city: 'Hyderabad'
 };
 
-const dashboardData = {
-    resident,
-    stats: [
-        { label: 'Water status', value: '72%', unit: 'stored', status: 'Normal', tone: 'secondary' },
-        { label: 'Parking', value: '45', unit: 'slots open', status: 'Available', tone: 'primary' },
-        { label: 'Waste', value: 'Wet Waste', unit: 'Pickup 8:00 AM', status: 'Today', tone: 'tertiary' },
-        { label: 'Drainage', value: '1 issue', unit: 'crew active', status: 'Block B', tone: 'error' }
-    ],
-    quickActions: [
-        { name: 'Reserve Parking', href: '/parking_management/code.html', color: 'primary' },
-        { name: 'Check Water', href: '/water_availability_quality/code.html', color: 'secondary' },
-        { name: 'Report Issue', href: '/complaints_maintenance/code.html', color: 'surface' },
-        { name: 'Waste & Flow', href: '/waste_drainage_management/code.html', color: 'tertiary' },
-        { name: 'Organic Food', href: '/healthy_food_directory/code.html', color: 'primary' },
-        { name: 'Green & Fit', href: '#', color: 'secondary' }
-    ],
-    notices: [
-        'Rainwater harvesting tanks are operating at 92% capacity.',
-        'Community solar output is stable and above average today.',
-        'Your parking slot P-B-042 is active and verified.'
-    ],
-    complaints: [
-        { id: 'CMP-1048', title: 'Drainage clog near Block B gate', status: 'In progress', priority: 'High' },
-        { id: 'CMP-1042', title: 'Water filter replacement request', status: 'Resolved', priority: 'Medium' }
-    ]
-};
+const users = [resident];
+const dashboardData = createDashboardData(resident);
+
+function findUserByEmail(email) {
+    const normalizedEmail = String(email || '').trim().toLowerCase();
+    return users.find((user) => String(user.email || '').trim().toLowerCase() === normalizedEmail) || null;
+}
+
+function createDashboardData(user) {
+    return {
+        resident: {
+            id: user.id,
+            name: user.name,
+            unit: user.unit,
+            email: user.email,
+            role: user.role,
+            building: user.building,
+            city: user.city
+        },
+        stats: [
+            { label: 'Water status', value: '72%', unit: 'stored', status: 'Normal', tone: 'secondary' },
+            { label: 'Parking', value: '45', unit: 'slots open', status: 'Available', tone: 'primary' },
+            { label: 'Waste', value: 'Wet Waste', unit: 'Pickup 8:00 AM', status: 'Today', tone: 'tertiary' },
+            { label: 'Drainage', value: '1 issue', unit: 'crew active', status: 'Block B', tone: 'error' }
+        ],
+        quickActions: [
+            { name: 'Reserve Parking', href: '/parking_management/code.html', color: 'primary' },
+            { name: 'Check Water', href: '/water_availability_quality/code.html', color: 'secondary' },
+            { name: 'Report Issue', href: '/complaints_maintenance/code.html', color: 'surface' },
+            { name: 'Waste & Flow', href: '/waste_drainage_management/code.html', color: 'tertiary' },
+            { name: 'Organic Food', href: '/healthy_food_directory/code.html', color: 'primary' },
+            { name: 'Green & Fit', href: '#', color: 'secondary' }
+        ],
+        notices: [
+            'Rainwater harvesting tanks are operating at 92% capacity.',
+            'Community solar output is stable and above average today.',
+            `Your parking slot ${user.unit === 'B-204' ? 'P-B-042' : 'P-A-010'} is active and verified.`
+        ],
+        complaints: [
+            { id: 'CMP-1048', title: 'Drainage clog near Block B gate', status: 'In progress', priority: 'High' },
+            { id: 'CMP-1042', title: 'Water filter replacement request', status: 'Resolved', priority: 'Medium' }
+        ]
+    };
+}
 
 app.use(cors());
 app.use(express.json());
@@ -54,6 +72,52 @@ appRoutes.get('/health', (req, res) => {
     res.json({ status: 'ok', project: 'Smart Community System', time: new Date().toISOString() });
 });
 
+appRoutes.post('/register', (req, res) => {
+    const payload = req.body || {};
+    const name = String(payload.name || '').trim();
+    const email = String(payload.email || '').trim().toLowerCase();
+    const password = String(payload.password || '');
+    const unit = String(payload.unit || '').trim();
+    const mobile = String(payload.mobile || '').trim();
+
+    if (!name || !email || !password || !unit) {
+        return res.status(400).json({ success: false, message: 'Name, email, password and unit are required.' });
+    }
+
+    const existingUser = findUserByEmail(email);
+    if (existingUser) {
+        return res.status(409).json({ success: false, message: 'This email is already registered.' });
+    }
+
+    const newUser = {
+        id: `resident-${Date.now()}`,
+        name,
+        unit,
+        email,
+        mobile: mobile || '+91 90000 00000',
+        password,
+        role: 'resident',
+        building: 'Green Valley Residency',
+        city: 'Hyderabad'
+    };
+
+    users.push(newUser);
+
+    return res.status(201).json({
+        success: true,
+        message: 'Registration successful',
+        resident: {
+            id: newUser.id,
+            name: newUser.name,
+            unit: newUser.unit,
+            email: newUser.email,
+            role: newUser.role,
+            building: newUser.building,
+            city: newUser.city
+        }
+    });
+});
+
 appRoutes.post('/login', (req, res) => {
     const email = String(req.body?.email || '').trim().toLowerCase();
     const password = String(req.body?.password || '');
@@ -62,10 +126,8 @@ appRoutes.post('/login', (req, res) => {
         return res.status(400).json({ success: false, message: 'Email and password are required.' });
     }
 
-    const validLogin =
-        (email === resident.email && password === resident.password) ||
-        (email === 'resident@greenvalley.in' && password === resident.password) ||
-        (email === 'shravani@example.com' && password === resident.password);
+    const user = findUserByEmail(email);
+    const validLogin = user && user.password === password;
 
     if (!validLogin) {
         return res.status(401).json({ success: false, message: 'Invalid email or password.' });
@@ -75,20 +137,22 @@ appRoutes.post('/login', (req, res) => {
         success: true,
         message: 'Login successful',
         resident: {
-            id: resident.id,
-            name: resident.name,
-            unit: resident.unit,
-            email: resident.email,
-            role: resident.role,
-            building: resident.building,
-            city: resident.city
+            id: user.id,
+            name: user.name,
+            unit: user.unit,
+            email: user.email,
+            role: user.role,
+            building: user.building,
+            city: user.city
         },
         redirect: '/resident_dashboard/code.html'
     });
 });
 
 appRoutes.get('/dashboard', (req, res) => {
-    res.json(dashboardData);
+    const email = String(req.query.email || '').trim().toLowerCase();
+    const user = findUserByEmail(email) || resident;
+    res.json(createDashboardData(user));
 });
 
 appRoutes.get('/services', (req, res) => {

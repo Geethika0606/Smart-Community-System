@@ -1,0 +1,1 @@
+fatal: cannot change to ' c:/Users/parva/OneDrive/Desktop/smart project 1/Smart-Community-System': Invalid argument
